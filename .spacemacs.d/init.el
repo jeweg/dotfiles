@@ -210,8 +210,8 @@ values."
                                   :width normal
                                   :powerline-scale 1.1)))
   (if (eq system-type 'gnu/linux)
-      (setq-default dotspacemacs-default-font '("Hack"
-                                  :size 11.0
+      (setq-default dotspacemacs-default-font '("Monospace"
+                                  :size 10.0
                                   :weight normal
                                   :width normal
                                   :powerline-scale 1.1)))
