@@ -2,6 +2,8 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
+(load-library "url-handlers")
+
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -28,6 +30,7 @@ values."
             c-c++-default-mode-for-headers 'c++-mode)
      git
      osx
+     puppet
      ;; git
      ;; markdown
      ;; org
@@ -44,7 +47,7 @@ values."
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(evil-anzu)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
@@ -210,11 +213,16 @@ values."
                                   :width normal
                                   :powerline-scale 1.1)))
   (if (eq system-type 'gnu/linux)
-      (setq-default dotspacemacs-default-font '("Monospace"
-                                  :size 10.0
-                                  :weight normal
-                                  :width normal
-                                  :powerline-scale 1.1)))
+      (setq-default dotspacemacs-default-font '("Consolas for Powerline"
+                                                :size 11.0
+                                                :weight normal
+                                                :width normal
+                                                :powerline-scale 1.1)))
+      ;(setq-default dotspacemacs-default-font '("Meslo LG S DZ for Powerline"
+      ;                            :size 10.0
+      ;                            :weight normal
+      ;                            :width normal
+      ;                            :powerline-scale 1.1)))
 
 )
 
@@ -261,3 +269,19 @@ values."
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (helm gitignore-mode company anaconda-mode evil package-build bind-key s dash paradox magit-gitflow magit git-commit company-quickhelp zeal-at-point window-numbering which-key volatile-highlights vi-tilde-fringe use-package spray spacemacs-theme smooth-scrolling smeargle smartparens smart-tabs-mode reveal-in-osx-finder rainbow-delimiters quelpa pyvenv python pytest pyenv-mode puppetfile-mode puppet-mode powerline popwin pip-requirements pcre2el pbcopy page-break-lines open-junk-file neotree move-text material-theme macrostep linum-relative leuven-theme launchctl info+ indent-guide ido-vertical-mode hy-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-descbinds helm-dash helm-c-yasnippet helm-ag google-translate golden-ratio gitconfig-mode gitattributes-mode git-timemachine git-messenger flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-leader evil-jumper evil-indent-textobject evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav dtrt-indent disaster define-word cython-mode company-statistics company-c-headers company-anaconda cmake-mode clean-aindent-mode clang-format buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary aurora-theme aggressive-indent adaptive-wrap ace-window ace-link ac-ispell))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:foreground "#CDD3D3" :background "#263238"))))
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
